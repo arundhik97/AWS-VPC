@@ -47,4 +47,8 @@ o	Availability Zone: No Preference <br>
 o	IPv4 CIDR block: 10.0.2.0/24 <br>
 4.	Click Create subnet. 
 
+<img width="1242" alt="VPC Private Subnet" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/dcb96983-f731-4fe7-a6c8-6f0a06dbff81">
+
+Our next steps are to create an <strong> internet gateway </strong>and configure our route tables to make our subnets reachable from the internet.
+
 
