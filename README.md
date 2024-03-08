@@ -67,24 +67,45 @@ Our next steps are to create an <strong> internet gateway </strong>and configure
 •	An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet. <br>
 •	An internet gateway is not a router. It does not perform any routing functions. It simply serves as a point of entry and exit for traffic going to and from the internet.<br>
 •	An internet gateway is typically attached to a subnet, enabling instances in the subnet to communicate with the internet. In our case, we will attach it to our public subnet, Arun-Public-Subnet.
-But before we start, let's change the settings of our Arun-Public-Subnet to allow auto-assign of public IPv4 IP addresses.
-![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/97ebd6eb-507f-478b-8492-2f4226e343a0)
-
-Select <strong>Arun-Public-Subnet</strong>:
-1.	Click <strong>Actions</strong>.
-2.	Select <strong>Edit subnet settings</strong>.
-3.	Check <strong>Enable auto-assign public IPv4 address</strong>.
+But before we start, let's change the settings of our Arun-Public-Subnet to allow auto-assign of public IPv4 IP addresses. <br>
+Select <strong>Arun-Public-Subnet</strong>: <br>
+1.	Click <strong>Actions</strong>. <br>
+2.	Select <strong>Edit subnet settings</strong>. <br>
+3.	Check <strong>Enable auto-assign public IPv4 address</strong>. <br>
 4.	Click <strong>Save</strong>.<br>
+
+![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/a6dbddf4-0af5-4ae2-b61a-6c3454e83a35)
+
 Now let's go ahead and build our internet gateway:
-1.	Navigate to the Internet Gateways section in the VPC service.
-2.	Click Create Internet Gateway.
-3.	Create a new internet gateway with the following setting:
-o	Name tag: CiscoU-IGW
-4.	Click Create Internet Gateway.
-Great! Let's attach it to our CiscoU-VPC:
-1.	Select CiscoU-IGW.
-2.	Click Actions.
-3.	Select Attach to VPC.
-4.	Select CiscoU-VPC.
-5.	Click Attach Internet Gateway.
+1.	Navigate to the <strong>Internet Gateways</strong> section in the VPC service.
+2.	Click <strong>Create Internet Gateway</strong>.
+3.	Create a new internet gateway with the following setting:<br>
+            o	Name tag: <strong>Arun-IGW</strong>
+4.	Click <strong>Create Internet Gateway</strong>.
+<img width="640" alt="Arun-IGW" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4a6a286d-2493-43c2-a3ad-7b9889ef6d04">
+   Let's attach it to our Arun-VPC:
+1.	Select <strong>Arun-IGW</strong>. <br>
+2.	Click <strong>Actions</strong>. <br>
+3.	Select <strong>Attach to VPC</strong>. <br>
+4.	Select <strong>Arun-VPC</strong>. <br>
+5.	Click <strong>Attach Internet Gateway</strong>. <br>
+
+<img width="643" alt="image" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e8b712e-4c34-4f31-a85c-656a7ddefe43">
+
+We now have a way to get public IP addresses to our instances, but we don't have a route created to direct traffic from our public subnet to the internet gateway. <br>
+Let's create a route table and add a route to our internet gateway. <br>
+<h1> Create Route Tables</h1>
+A route table contains a set of rules, called routes, that are used to determine where network traffic is directed. It is no different from a routing table in a router. As a network engineer, we should be familiar with the concept. <br>
+Let's create a route table for our CiscoU-Public-Subnet: <br>
+1.	Navigate to the <strong>Route tables</strong> section in the VPC service. <strong>Notice that we have a default route table that was created when we created our VPC.</strong> <br>
+2.	Click <strong>Create route table</strong>. <br>
+3.	Create a new route table with the following settings: <br>
+o	Name tag: <strong>Arun-Public-RT</strong> <br>
+o	VPC: <strong>Arun-VPC</strong> <br>
+4.	Click <strong>Create route table.</strong> <br> 
+<img width="640" alt="Arun-Public-RT" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/e040f3d1-5fc3-4f0a-b4f9-563a037482e8">
+
+You now have a way to direct traffic from your public subnet to the internet gateway, but we have to define a route to do that. <br>
+1.	Select <strong>Arun-Public-RT</strong>.
+2.	In the Routes tab, click <strong>Add routes</strong>.
 
