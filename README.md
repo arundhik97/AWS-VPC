@@ -139,11 +139,14 @@ Here is where we will configure our EC2 instance:<br>
 2.	Select an Amazon Machine Image (AMI): <strong>Amazon Linux 2023 AMI</strong> <br>
 3.	Architecture: <strong>64-bit (x86)</strong> <br>
 4.	Instance Type: <strong>t2.micro free tier eligible</strong> <br>
+<img width="1239" alt="EC2 Pub  instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4bd5807c-4460-4cfb-8acc-6d8f3ca32848">
+
 5.	Key pair: <strong>Create a new key pair</strong> <br>
 o	Key pair name: <strong>Arun-EC2-Key-Pub</strong> <br>
 o	Key pair type: <strong>RSA</strong> <br>
 o	Key pair file format: <srong>pem</srong> for Mac and Linux, <strong>ppk</strong> for Windows <br>
 o	Click <strong>Create key pair</strong>. <br>
+<img width="653" alt="Arun-EC2-PUb Key" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/d6655dbb-f1b5-4cb9-8696-60097d99e0aa">
 o	Download the key pair and save it in a safe place. You will need it to use Secure Shell (SSH) into your public instance. <br>
 6.	In the Network Settings section, click <strong>Edit</strong>. Let's make sure that we are launching our instance in the right subnet: <br>
 o	Network: <strong>Arun-VPC</strong> <br>
@@ -153,7 +156,7 @@ o	Firewall (Security Group): <strong>Create a new security group</strong> <br>
 	Security group name: <strong>Arun-EC2-Pub-SG</strong> <br>
 	Description: <strong>Arun-EC2-Pub-SG</strong> <br>
 	Type: <strong>SSH</strong> <br>
-	Source: <strong>MY IP</strong>. <strong>Make a note of your IP address!</strong> For example,  <strong>69.181.208.75/32</strong>.<br>
+	Source: <strong>MY IP</strong>. <strong>Make a note of your IP address!</strong> For example,  <strong>14.203.140.183/32</strong>.<br>
 	Click <strong>Add Rule</strong>. <br>
 7.	Add another rule to allow SSH traffic: <br>
 o	Type: <strong>SSH</strong> <br>
