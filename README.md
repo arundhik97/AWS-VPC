@@ -20,16 +20,29 @@ The rest is basic networking concepts. We need to create subnets, route tables, 
 <img width="691" alt="VPC" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e84fce5-fd47-4739-8997-52251c9f11da">
 
 ![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/faf483ed-4685-481b-a97a-aa8ffcb7b75c)
+
+First, let's create a VPC: <br>
+1.	Log in to our AWS account <br>
+2.	Navigate to the <strong>VPC service </strong>. <br>
+3.	Click <strong>Create VPC </strong>. <br>
+4.	Under VPC Settings, select <strong>VPC Only </strong>. <br>
+5.	Create a new VPC with the following settings: <br>
+o	Name tag: <strong>Arun-VPC </strong> <br>
+o	IPv4 CIDR block:  <strong>10.0.0.0/16 </strong> <br>
+o	IPv6 CIDR block: <strong> No IPv6 CIDR Block </strong><br>
+o	Tenancy: <strong>Default </strong> <br>
+6.	Click <strong>Create VPC </strong>. <br>
+
 <h2> Create Public Subnet</h2>
 A public subnet is a subnet that has a route to the internet. It is usually used for resources that need access from the internet. In this case, the resource will be an EC2 instance.<br>
 1.	Navigate to the Subnets section in the VPC service.<br>
 2.	Click Create subnet.<br>
 3.	Create a new subnet with the following settings:<br>
-o	VPC ID: Arun-VPC <br>
-o	Subnet name: Arun-Public-Subnet <br>
-o	Availability Zone: No Preference <br>
-o	IPv4 CIDR block: 10.0.1.0/24 <br>
-4.	Click Create subnet.
+o	VPC ID: <strong>Arun-VPC </strong> <br>
+o	Subnet name: <strong>Arun-Public-Subnet </strong><br>
+o	Availability Zone: <strong>No Preference </strong> <br>
+o	IPv4 CIDR block: <strong>10.0.1.0/24 </strong> <br>
+4.	Click <strong>Create subnet. </strong>
 <img width="1241" alt="VPC Public Subnet" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/54176de9-b115-46b2-8b09-9a53a9d5f87f"> <br>
 A few things to note: <br>
 •	Although we have a /16 CIDR block, we are using /24, meaning that we are using 256 addresses for our subnet.<br>
