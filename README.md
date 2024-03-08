@@ -107,5 +107,61 @@ o	VPC: <strong>Arun-VPC</strong> <br>
 
 You now have a way to direct traffic from your public subnet to the internet gateway, but we have to define a route to do that. <br>
 1.	Select <strong>Arun-Public-RT</strong>.
-2.	In the Routes tab, click <strong>Add routes</strong>.
+2.	In the Routes tab, click <strong>Add routes</strong>. <br>
+<img width="642" alt="Default route to IGW" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/cdceaef7-2911-43f2-8a1b-2e4217e30701">
+
+<strong>Notice that we have a default route to resolve all traffic to the local VPC. This is a default route that was created when we created our VPC</strong>. <br>
+3.Let's create a <strong>catch all</strong> route that will allow us to reach the public internet. - Destination: <strong>0.0.0.0/0</strong> - Target: <strong>Internet Gateway</strong> - Select <strong>Arun-IGW</strong>. <br>
+4. Click <strong>Save routes</strong>.<br>
+
+Next, we need to associate our Arun-Public-RT to our Arun-Public-Subnet.
+1.	Select the <strong>Subnet Association </strong>tab.
+2.	Click <strong>Edit subnet associations</strong>.
+3.	Select <strong>Arun-Public-Subnet</strong>.
+4.	Click <strong>Save associations</strong>. <br>
+We now have a public subnet that has a route to the internet.<br>
+Let's attach some computing to our newly created network.<br>
+
+<h1>Launch Public EC2 Instance</h1>
+EC2 is a web service that provides secure, resizable computing capacity in the cloud. Think of it as a virtual machine in the cloud.<br>
+EC2 can help with:<br>
+•	Deploying applications quickly <br>
+•	Scaling applications <br>
+•	Providing developers with complete control of their computing resources <br>
+•	Reducing the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change. <br>
+Let's launch an EC2 instance in our Arun-Public-Subnet.<br>
+Navigate to the <strong>EC2</strong> service: <br> <br>
+1.	In the search bar, type <strong>EC2</strong> and click the service. <br>
+2.	In the left pane, click <strong>Instances</strong>. <br>
+3.	Click <strong>Launch Instance</strong>. <br> <br>
+Here is where we will configure our EC2 instance:<br>
+1.	Give your instance a name: <strong>Arun-EC2-Pub</strong> <br>
+2.	Select an Amazon Machine Image (AMI): <strong>Amazon Linux 2023 AMI</strong> <br>
+3.	Architecture: <strong>64-bit (x86)</strong> <br>
+4.	Instance Type: <strong>t2.micro free tier eligible</strong> <br>
+5.	Key pair: <strong>Create a new key pair</strong> <br>
+o	Key pair name: <strong>Arun-EC2-Key-Pub</strong> <br>
+o	Key pair type: <strong>RSA</strong> <br>
+o	Key pair file format: <srong>pem</srong> for Mac and Linux, <strong>ppk</strong> for Windows <br>
+o	Click <strong>Create key pair</strong>. <br>
+o	Download the key pair and save it in a safe place. You will need it to use Secure Shell (SSH) into your public instance. <br>
+6.	In the Network Settings section, click <strong>Edit</strong>. Let's make sure that we are launching our instance in the right subnet: <br>
+o	Network: <strong>Arun-VPC</strong> <br>
+o	Subnet: <strong>Arun-Public-Subnet</strong><br>
+o	Auto-assign Public IP: <strong>Enable</strong> <br>
+o	Firewall (Security Group): <strong>Create a new security group</strong> <br>
+	Security group name: <strong>Arun-EC2-Pub-SG</strong> <br>
+	Description: <strong>Arun-EC2-Pub-SG</strong> <br>
+	Type: <strong>SSH</strong> <br>
+	Source: <strong>MY IP</strong>. <strong>Make a note of your IP address!</strong> For example,  <strong>69.181.208.75/32</strong>.
+	Click <strong>Add Rule</strong>. <br>
+7.	Add another rule to allow SSH traffic: <br>
+o	Type: <strong>SSH</strong> <br>
+o	Source type: <strong>Custom</strong> <br>
+o	Source: Our VPC CIDR block, which is <strong>10.0.0.0/16</strong> <br>
+The rest of the settings can be left as is. <br>
+8.	Scroll down and click <strong>Launch instance</strong>. <br>
+9.	Once launched, click <strong>View All Instances</strong> to see your instance. <br>
+Next, let's launch an EC2 instance in our Arun-Private-Subnet. <br>
+
 
