@@ -3,6 +3,7 @@
  <html>
  <body>
   <h2> VPC </h2>
+  VPC stands for Virtual Private Cloud, which is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS Cloud.
  <p style ="color:red;> VPC 
  </p> 
 <p>  VPC stands for Virtual Private Cloud, which is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS Cloud.
