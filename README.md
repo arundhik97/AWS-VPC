@@ -17,5 +17,23 @@ The rest is basic networking concepts. We need to create subnets, route tables, 
 <br>
  We have a VPC with two subnets—one public and one private. We also have an internet gateway to configure and create routes between our subnets.
 
+<img width="691" alt="VPC" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e84fce5-fd47-4739-8997-52251c9f11da">
 
 ![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/faf483ed-4685-481b-a97a-aa8ffcb7b75c)
+<h2> Create Public Subnet</h2>
+A public subnet is a subnet that has a route to the internet. It is usually used for resources that need access from the internet. In this case, the resource will be an EC2 instance.<br>
+1.	Navigate to the Subnets section in the VPC service.<br>
+2.	Click Create subnet.<br>
+3.	Create a new subnet with the following settings:<br>
+o	VPC ID: CiscoU-VPC <br>
+o	Subnet name: CiscoU-Public-Subnet <br>
+o	Availability Zone: No Preference <br>
+o	IPv4 CIDR block: 10.0.1.0/24 <br>
+4.	Click Create subnet.
+<img width="1241" alt="VPC Public Subnet" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/54176de9-b115-46b2-8b09-9a53a9d5f87f"> <br>
+A few things to note: <br>
+•	Although we have a /16 CIDR block, we are using /24, meaning that we are using 256 addresses for our subnet.<br>
+•	We are not selecting an availability zone, meaning that AWS will choose an availability zone for us. <br>
+•	Although the name of our subnet is CiscoU-Public-Subnet, it is not a public subnet yet. We still need to create a route to the internet.
+
+
