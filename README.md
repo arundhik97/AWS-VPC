@@ -64,3 +64,27 @@ o	IPv4 CIDR block: <strong>10.0.2.0/24</strong> <br>
 
 Our next steps are to create an <strong> internet gateway </strong>and configure our <strong>route tables</strong> to make our subnets reachable from the internet.
 <h1>Create Internet Gateway</h1>
+•	An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet. <br>
+•	An internet gateway is not a router. It does not perform any routing functions. It simply serves as a point of entry and exit for traffic going to and from the internet.<br>
+•	An internet gateway is typically attached to a subnet, enabling instances in the subnet to communicate with the internet. In our case, we will attach it to our public subnet, Arun-Public-Subnet.
+But before we start, let's change the settings of our Arun-Public-Subnet to allow auto-assign of public IPv4 IP addresses.
+![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/97ebd6eb-507f-478b-8492-2f4226e343a0)
+
+Select <strong>Arun-Public-Subnet</strong>:
+1.	Click <strong>Actions</strong>.
+2.	Select <strong>Edit subnet settings</strong>.
+3.	Check <strong>Enable auto-assign public IPv4 address</strong>.
+4.	Click <strong>Save</strong>.<br>
+Now let's go ahead and build our internet gateway:
+1.	Navigate to the Internet Gateways section in the VPC service.
+2.	Click Create Internet Gateway.
+3.	Create a new internet gateway with the following setting:
+o	Name tag: CiscoU-IGW
+4.	Click Create Internet Gateway.
+Great! Let's attach it to our CiscoU-VPC:
+1.	Select CiscoU-IGW.
+2.	Click Actions.
+3.	Select Attach to VPC.
+4.	Select CiscoU-VPC.
+5.	Click Attach Internet Gateway.
+
