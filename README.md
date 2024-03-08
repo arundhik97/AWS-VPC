@@ -153,7 +153,7 @@ o	Firewall (Security Group): <strong>Create a new security group</strong> <br>
 	Security group name: <strong>Arun-EC2-Pub-SG</strong> <br>
 	Description: <strong>Arun-EC2-Pub-SG</strong> <br>
 	Type: <strong>SSH</strong> <br>
-	Source: <strong>MY IP</strong>. <strong>Make a note of your IP address!</strong> For example,  <strong>69.181.208.75/32</strong>.
+	Source: <strong>MY IP</strong>. <strong>Make a note of your IP address!</strong> For example,  <strong>69.181.208.75/32</strong>.<br>
 	Click <strong>Add Rule</strong>. <br>
 7.	Add another rule to allow SSH traffic: <br>
 o	Type: <strong>SSH</strong> <br>
@@ -161,7 +161,7 @@ o	Source type: <strong>Custom</strong> <br>
 o	Source: Our VPC CIDR block, which is <strong>10.0.0.0/16</strong> <br>
 The rest of the settings can be left as is. <br>
 8.	Scroll down and click <strong>Launch instance</strong>. <br>
-9.	Once launched, click <strong>View All Instances</strong> to see your instance. <br>
+9.	Once launched, click <strong>View All Instances</strong> to see your instance. <br> <br>
 Next, let's launch an EC2 instance in our Arun-Private-Subnet. <br>
 
 
