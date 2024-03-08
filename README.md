@@ -158,13 +158,68 @@ o	Firewall (Security Group): <strong>Create a new security group</strong> <br>
 	Type: <strong>SSH</strong> <br>
 	Source: <strong>MY IP</strong>. <strong>Make a note of your IP address!</strong> For example,  <strong>14.203.140.183/32</strong>.<br>
 	Click <strong>Add Rule</strong>. <br>
+<img width="1241" alt="Network Settings EC2-Pub" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/d28e9a2c-4614-49b3-afca-2606ab4be316">
+
 7.	Add another rule to allow SSH traffic: <br>
 o	Type: <strong>SSH</strong> <br>
 o	Source type: <strong>Custom</strong> <br>
 o	Source: Our VPC CIDR block, which is <strong>10.0.0.0/16</strong> <br>
 The rest of the settings can be left as is. <br>
+<img width="641" alt="ssh-EC2-Pub-SG" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/45f954ce-e8e4-4c4d-b53e-2fdab27cb7c5">
 8.	Scroll down and click <strong>Launch instance</strong>. <br>
 9.	Once launched, click <strong>View All Instances</strong> to see your instance. <br> <br>
 Next, let's launch an EC2 instance in our Arun-Private-Subnet. <br>
+
+
+<h1>Launch Private EC2 Instance</h1>
+Here, we are going to create an EC2 instance in our CiscoU-Private-Subnet. This is a subnet that does not have a route to the internet. We will access this instance from our Arun-EC2-Pub instance.<br>
+Click Launch Instance:<br>
+1.	Give your instance a name: Arun-EC2-Priv<br>
+2.	Select an AMI: Amazon Linux 2023 AMI<br>
+3.	Architecture: 64-bit (x86) <br>
+4.	Instance Type: t2.micro free tier eligible<br>
+5.	Key pair: Create a new key pair<br>
+o	Key pair name: Arun-EC2-Key-Priv<br>
+o	Key pair type: RSA<br>
+o	Key pair file format: pem (because our public instance is a Linux instance)<br>
+o	Click Create key pair.<br>
+o	Download the key pair and save it in a safe place. You will need it to use SSH into your private instance.<br>
+6.	In the Network Settings section, click Edit. Let's make sure that we are launching our instance in the right subnet:<br>
+o	Network: Arun-VPC<br>
+o	Subnet: Arun-Private-Subnet<br>
+o	Auto-assign Public IP: Disable<br>
+o	Firewall (Security Group): Create a new security group<br>
+	Security group name: Arun-EC2-Priv-SG<br>
+	Description: Arun-EC2-Priv-SG <br>
+	Type: SSH <br>
+	Source type: Custom<br>
+	Source: Our VPC CIDR block, which is 10.0.0.0/16. This way, our public instance can use SSH into our private instance.<br>
+7.	Scroll down and click Launch instance.<br>
+<img width="1242" alt="EC2-Priv-SG" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/a10175f4-e7c5-4bf4-baee-52697e46e7d8">
+8.	Once launched, click View All Instances to see your instance.<br>
+
+<h1>Use SSH into EC2 Instances</h1>
+That was a lot of work. We are almost there! Let's use SSH into our instances.
+First, we'll use SSH into our CiscoU-EC2-Pub instance. From your Instances view, right-click CiscoU-EC2-Pub, and then click Connect:
+1.	From the top navigation tab, select SSH client.
+2.	Copy the SSH command.
+3.	On your local machine, open a terminal and paste the command. For example, mine is ssh -i "CiscoU-EC2-Key-Pub.pem" ec2-user@54.191.237.93.
+A couple of things to note:
+•	If you get permission denied, make sure that you are in the directory where you saved your key pair.
+•	If you get a warning about the permissions of your key pair, run chmod 400 CiscoU-EC2-Key-Pub.pem to change the permissions of your key pair.
+Now that we are in our public instance, let's set it up to use SSH into our private instance that's not accessible from the internet.
+In your current terminal, run the following commands:
+1.	Let's copy over our private key to our public instance:
+o	In your terminal, enter vi CiscoU-EC2-Key-Priv.pem to open a new file.
+o	Press i to enter insert mode.
+o	Open CiscoU-EC2-Key-Priv.pem in a text editor and copy the contents of the file.
+o	Paste the contents of the file in your terminal.
+o	Press esc to exit insert mode.
+o	Type :wq and enter to save and exit.
+2.	Let's change the permissions of our private key:
+o	In your terminal, enter chmod 400 CiscoU-EC2-Key-Priv.pem.
+3.	Now, let's use SSH into our private instance:
+o	Copy and paste the command from the Connect to your instance window. For example, mine is ssh -i "CiscoU-EC2-Key-Priv.pem" ec2-user@10.0.2.160.
+You should now be in your private instance. Woo hoo!
 
 
