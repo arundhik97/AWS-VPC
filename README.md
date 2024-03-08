@@ -1,7 +1,9 @@
 # AWS-VPC
  <!DOCTYPE html>
  <html>
- <script font-size: 12px >  </script> <h1>VPC  </h1> </html>
+ <body>
+ <p style ="color:red;> VPC 
+ </p> </body></html>
 VPC stands for Virtual Private Cloud, which is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS Cloud.
 A subnet is a range of IP addresses in your VPC. You can launch AWS resources into a subnet that you select.
 An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet.
