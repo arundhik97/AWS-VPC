@@ -1,4 +1,5 @@
-# AWS-VPC
+![AwsGIF](https://github.com/arundhik97/AWS-VPC/assets/38269066/cd721b3d-9d8d-4ad9-aea3-892b248758e4)
+ #AWS-VPC
  <!DOCTYPE html>
  <html>
  <body>
@@ -16,3 +17,4 @@ The rest is basic networking concepts. We need to create subnets, route tables, 
  We have a VPC with two subnets—one public and one private. We also have an internet gateway to configure and create routes between our subnets.
 
 
+![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/faf483ed-4685-481b-a97a-aa8ffcb7b75c)
