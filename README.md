@@ -16,9 +16,6 @@ The rest is basic networking concepts. We need to create subnets, route tables, 
  
 <img width="691" alt="VPC" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e84fce5-fd47-4739-8997-52251c9f11da"> <br>
 
-
-![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/97f39388-5a46-4add-8f73-ea4f21396a83) <br>
-
 First, let's create a VPC: <br>
 1.	Log in to our AWS account <br>
 2.	Navigate to the <strong>VPC service </strong>. <br>
