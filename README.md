@@ -12,7 +12,7 @@ EC2 stands for Elastic Compute Cloud, a web service that provides secure, resiza
 The rest is basic networking concepts. We need to create subnets, route tables, and security groups. <br>
  We also need to create network ACLs.
 <br>
- We have a VPC with two subnets—one public and one private. We also have an internet gateway to configure and create routes between our subnets.
+ We have a VPC with two subnets—one public and one private. We also have an internet gateway to configure and create routes between our subnets. <br>
  
 <img width="691" alt="VPC" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e84fce5-fd47-4739-8997-52251c9f11da">
 
