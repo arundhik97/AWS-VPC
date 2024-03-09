@@ -220,7 +220,7 @@ o	Then, ssh to Public instance and create new file using, <strong>touch</strong>
 Let's change the permissions of our private key: <br>
 o	In your terminal, enter <strong>chmod 400 newfile1</strong>. <br>
 o	Copy and paste the command from the Connect to your instance window. For example, mine is <strong>ssh -i "Arun-EC2-Key-Priv.pem" ec2-user@10.0.2.218</strong>. <br>
-You should now be in your private instance. Woo hoo! <br> <br>
+You should now be in your private instance. Fantastic! <br> <br>
 
 <img width="421" alt="Copy Private Key  in Public instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/37a710dd-5df4-4506-9ecd-270f1aded1a5">
 
@@ -235,6 +235,6 @@ Let's change the permissions of our private key: <br>
 o	In your terminal, enter <strong>chmod 400 Arun-EC2-Key-Priv.pem</strong>. <br>
 Now, let's use SSH into our private instance: <br>
 o	Copy and paste the command from the Connect to your instance window. For example, mine is <strong>ssh -i "Arun-EC2-Key-Priv.pem" ec2-user@10.0.2.218</strong>. <br>
-You should now be in your private instance. Woo hoo! <br>
+You should now be in your private instance. Fantastic!<br>
 
 
