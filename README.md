@@ -15,7 +15,7 @@ The rest is basic networking concepts. We need to create subnets, route tables, 
  We have a VPC with two subnets—one public and one private. We also have an internet gateway to configure and create routes between our subnets. <br>
  
 <img width="691" alt="VPC" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e84fce5-fd47-4739-8997-52251c9f11da">
-![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/faf483ed-4685-481b-a97a-aa8ffcb7b75c)
+![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/97f39388-5a46-4add-8f73-ea4f21396a83)
 
 First, let's create a VPC: <br>
 1.	Log in to our AWS account <br>
