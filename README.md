@@ -15,8 +15,9 @@ The rest is basic networking concepts. We need to create subnets, route tables, 
  We have a VPC with two subnets—one public and one private. We also have an internet gateway to configure and create routes between our subnets. <br>
  
 <img width="691" alt="VPC" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e84fce5-fd47-4739-8997-52251c9f11da"> <br>
+![VPC AWS](https://github.com/arundhik97/AWS-VPC/assets/38269066/d6bc6235-0110-4bab-a48e-c2159e9bba6b) <br>
 
-First, let's create a VPC: <br>
+First, let's create a VPC:
 1.	Log in to our AWS account <br>
 2.	Navigate to the <strong>VPC service </strong>. <br>
 3.	Click <strong>Create VPC </strong>. <br>
@@ -70,7 +71,9 @@ Select <strong>Arun-Public-Subnet</strong>: <br>
 2.	Select <strong>Edit subnet settings</strong>. <br>
 3.	Check <strong>Enable auto-assign public IPv4 address</strong>. <br>
 4.	Click <strong>Save</strong>.<br>
+
 ![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/a6dbddf4-0af5-4ae2-b61a-6c3454e83a35)
+
 Now let's go ahead and build our internet gateway:
 1.	Navigate to the <strong>Internet Gateways</strong> section in the VPC service.
 2.	Click <strong>Create Internet Gateway</strong>.
