@@ -13,11 +13,8 @@ The rest is basic networking concepts. We need to create subnets, route tables, 
  We also need to create network ACLs.
 <br>
  We have a VPC with two subnets—one public and one private. We also have an internet gateway to configure and create routes between our subnets.
-
 <img width="691" alt="VPC" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e84fce5-fd47-4739-8997-52251c9f11da">
-
 ![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/faf483ed-4685-481b-a97a-aa8ffcb7b75c)
-
 First, let's create a VPC: <br>
 1.	Log in to our AWS account <br>
 2.	Navigate to the <strong>VPC service </strong>. <br>
@@ -45,6 +42,7 @@ A few things to note: <br>
 •	Although we have a /16 CIDR block, we are using <strong>/24 </strong>, meaning that we are using 256 addresses for our subnet.<br>
 •	We are not selecting an availability zone, meaning that AWS will choose an availability zone for us. <br>
 •	Although the name of our subnet is Arun-Public-Subnet, it is not a public subnet yet. We still need to create a route to the internet.
+
 <h2> Create Private Subnet</h2>
 Having a private subnet allows us to have resources to restrict internet access, which is excellent for security—maybe a Vault server that houses all secrets and tokens. We don't want that to be accessible from the internet. <br>
 Let's configure our private subnet: <br>
@@ -56,10 +54,9 @@ o	Subnet name: <strong>Arun-Private-Subnet</strong> <br>
 o	Availability Zone: <strong>No Preference</strong> <br>
 o	IPv4 CIDR block: <strong>10.0.2.0/24</strong> <br>
 4.	Click <strong>Create subnet</strong>. 
-
 <img width="1242" alt="VPC Private Subnet" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/dcb96983-f731-4fe7-a6c8-6f0a06dbff81">
-
 Our next steps are to create an <strong> internet gateway </strong>and configure our <strong>route tables</strong> to make our subnets reachable from the internet.
+
 <h2>Create Internet Gateway</h2>
 •	An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet. <br>
 •	An internet gateway is not a router. It does not perform any routing functions. It simply serves as a point of entry and exit for traffic going to and from the internet.<br>
@@ -70,9 +67,7 @@ Select <strong>Arun-Public-Subnet</strong>: <br>
 2.	Select <strong>Edit subnet settings</strong>. <br>
 3.	Check <strong>Enable auto-assign public IPv4 address</strong>. <br>
 4.	Click <strong>Save</strong>.<br>
-
 ![image](https://github.com/arundhik97/AWS-VPC/assets/38269066/a6dbddf4-0af5-4ae2-b61a-6c3454e83a35)
-
 Now let's go ahead and build our internet gateway:
 1.	Navigate to the <strong>Internet Gateways</strong> section in the VPC service.
 2.	Click <strong>Create Internet Gateway</strong>.
@@ -86,12 +81,11 @@ Now let's go ahead and build our internet gateway:
 3.	Select <strong>Attach to VPC</strong>. <br>
 4.	Select <strong>Arun-VPC</strong>. <br>
 5.	Click <strong>Attach Internet Gateway</strong>. <br>
-
 <img width="643" alt="image" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4e8b712e-4c34-4f31-a85c-656a7ddefe43">
-
 We now have a way to get public IP addresses to our instances, but we don't have a route created to direct traffic from our public subnet to the internet gateway. <br>
 Let's create a route table and add a route to our internet gateway. <br>
-<h1> Create Route Tables</h1>
+
+<h2> Create Route Tables</h2>
 A route table contains a set of rules, called routes, that are used to determine where network traffic is directed. It is no different from a routing table in a router. As a network engineer, we should be familiar with the concept. <br>
 Let's create a route table for our CiscoU-Public-Subnet: <br>
 1.	Navigate to the <strong>Route tables</strong> section in the VPC service. <strong>Notice that we have a default route table that was created when we created our VPC.</strong> <br>
@@ -101,16 +95,13 @@ o	Name tag: <strong>Arun-Public-RT</strong> <br>
 o	VPC: <strong>Arun-VPC</strong> <br>
 4.	Click <strong>Create route table.</strong> <br> 
 <img width="640" alt="Arun-Public-RT" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/e040f3d1-5fc3-4f0a-b4f9-563a037482e8">
-
 You now have a way to direct traffic from your public subnet to the internet gateway, but we have to define a route to do that. <br>
 1.	Select <strong>Arun-Public-RT</strong>.
 2.	In the Routes tab, click <strong>Add routes</strong>. <br>
 <img width="642" alt="Default route to IGW" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/cdceaef7-2911-43f2-8a1b-2e4217e30701">
-
 <strong>Notice that we have a default route to resolve all traffic to the local VPC. This is a default route that was created when we created our VPC</strong>. <br>
 3.Let's create a <strong>catch all</strong> route that will allow us to reach the public internet. - Destination: <strong>0.0.0.0/0</strong> - Target: <strong>Internet Gateway</strong> - Select <strong>Arun-IGW</strong>. <br>
 4. Click <strong>Save routes</strong>.<br>
-
 Next, we need to associate our Arun-Public-RT to our Arun-Public-Subnet.
 1.	Select the <strong>Subnet Association </strong>tab.
 2.	Click <strong>Edit subnet associations</strong>.
@@ -137,7 +128,6 @@ Here is where we will configure our EC2 instance:<br>
 3.	Architecture: <strong>64-bit (x86)</strong> <br>
 4.	Instance Type: <strong>t2.micro free tier eligible</strong> <br>
 <img width="1239" alt="EC2 Pub  instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/4bd5807c-4460-4cfb-8acc-6d8f3ca32848">
-
 5.	Key pair: <strong>Create a new key pair</strong> <br>
 o	Key pair name: <strong>Arun-EC2-Key-Pub</strong> <br>
 o	Key pair type: <strong>RSA</strong> <br>
@@ -156,7 +146,6 @@ o	Firewall (Security Group): <strong>Create a new security group</strong> <br>
 	Source: <strong>MY IP</strong>. <strong>Make a note of your IP address!</strong> For example,  <strong>14.203.140.183/32</strong>.<br>
 	Click <strong>Add Rule</strong>. <br>
 <img width="1241" alt="Network Settings EC2-Pub" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/d28e9a2c-4614-49b3-afca-2606ab4be316">
-
 7.	Add another rule to allow SSH traffic: <br>
 o	Type: <strong>SSH</strong> <br>
 o	Source type: <strong>Custom</strong> <br>
@@ -205,9 +194,7 @@ A couple of things to note: <br>
 •	If you get permission denied, make sure that you are in the directory where you saved your key pair. <br>
 •	If you get a warning about the permissions of your key pair, run <strong>chmod 400 Arun-EC2-Key-Pub.pem</strong> to change the permissions of your key pair. <br>
  <img width="415" alt="ssh into Pub Instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/01e6c15f-984b-4f2b-8ffc-124ccea73b2a">
- 
  <img width="419" alt="we are in public instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/3e52f80e-d3e7-4e4c-b661-7c5f725a19fb">
-
 Now that we are in our public instance, let's set it up to use SSH into our private instance that's not accessible from the internet.<br>
 In your current terminal, run the following commands: <br>
 Let's copy over our private key to our public instance: <br>
@@ -218,9 +205,7 @@ Let's change the permissions of our private key: <br>
 o	In your terminal, enter <strong>chmod 400 newfile1</strong>. <br>
 o	Copy and paste the command from the Connect to your instance window. For example, mine is <strong>ssh -i "Arun-EC2-Key-Priv.pem" ec2-user@10.0.2.218</strong>. <br>
 You should now be in your private instance. Fantastic! <br> <br>
-
 <img width="421" alt="Copy Private Key  in Public instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/37a710dd-5df4-4506-9ecd-270f1aded1a5">
-
 <strong>Method 2:</strong> <br>
 o	In your terminal, enter <strong>vi Arun-EC2-Key-Priv.pem</strong> to open a new file. <br>
 o	Press <strong>i</strong> to enter insert mode. <br>
