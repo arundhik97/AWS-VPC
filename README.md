@@ -214,7 +214,7 @@ A couple of things to note: <br>
 Now that we are in our public instance, let's set it up to use SSH into our private instance that's not accessible from the internet.<br>
 In your current terminal, run the following commands: <br>
 1.	Let's copy over our private key to our public instance: <br>
-Method 1:
+<strong>Method 1:</strong> <br>
 o	In your terminal, find <strong>Arun-EC2-Key-Priv.pem</strong> and copy the content of file. <br>
 o	Then, ssh to Public instance and create new file using, <strong>touch</strong> command and <strong>nano</strong> the file to exit. I have used <strong>newfile1</strong> as filenname, copy the whole content in this file copied from Private Key.
 2.	Let's change the permissions of our private key: <br>
@@ -224,7 +224,7 @@ You should now be in your private instance. Woo hoo! <br> <br>
 
 <img width="421" alt="Copy Private Key  in Public instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/37a710dd-5df4-4506-9ecd-270f1aded1a5">
 
-Method 2:
+<strong>Method 2:</strong> <br>
 o	In your terminal, enter <strong>vi Arun-EC2-Key-Priv.pem</strong> to open a new file. <br>
 o	Press <strong>i</strong> to enter insert mode. <br>
 o	Open <strong>Arun-EC2-Key-Priv.pem</strong> in a text editor and copy the contents of the file. <br>
