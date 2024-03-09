@@ -173,28 +173,28 @@ Next, let's launch an EC2 instance in our Arun-Private-Subnet. <br>
 
 <h1>Launch Private EC2 Instance</h1>
 Here, we are going to create an EC2 instance in our Arun-Private-Subnet. This is a subnet that does not have a route to the internet. We will access this instance from our Arun-EC2-Pub instance.<br>
-Click <strong>Launch Instance</strong>strong>:<br>
-1.	Give your instance a name: <strong>Arun-EC2-Priv</strong>strong><br>
+Click <strong>Launch Instance</strong>:<br>
+1.	Give your instance a name: <strong>Arun-EC2-Priv</strong><br>
 2.	Select an AMI: Amazon Linux 2023 AMI<br>
-3.	Architecture:<strong> 64-bit (x86) </strong>strong> <br>
-4.	Instance Type:</strong> t2.micro free tier eligible</strong><br>
-5.	Key pair: <strong>Create a new key pair</strong>strong><br>
+3.	Architecture:<strong> 64-bit (x86) </strong> <br>
+4.	Instance Type:<strong> t2.micro free tier eligible</strong><br>
+5.	Key pair: <strong>Create a new key pair</strong><br>
 o	Key pair name: Arun-EC2-Key-Priv<br>
-o	Key pair type: RSA<br>
-o	Key pair file format: <strong>pem</strong>strong> (because our public instance is a Linux instance)<br>
-o	Click <strong>Create key pair</strong>strong>.<br>
+o	Key pair type:<strong>RSA</strong>strong><br>
+o	Key pair file format: <strong>pem</strong> (because our public instance is a Linux instance)<br>
+o	Click <strong>Create key pair</strong>.<br>
 o	Download the key pair and save it in a safe place. You will need it to use SSH into your private instance.<br>
-6.	In the Network Settings section, click <strong>Edit</strong>strong>. Let's make sure that we are launching our instance in the right subnet:<br>
-o	Network: <strong>Arun-VPC</strong>strong><br>
-o	Subnet: <strong>Arun-Private-Subnet</strong>strong><br>
-o	Auto-assign Public IP: <strong>Disable</strong>strong><br>
-o	Firewall (Security Group): <strong>Create a new security group</strong>strong><br>
-	Security group name: <strong>Arun-EC2-Priv-SG</strong>strong><br>
-	Description: <strong>Arun-EC2-Priv-SG</strong>strong> <br>
-	Type: <strong>SSH <strong><br>
-	Source type: <strong>Custom</strong>strong><br>
-	Source: Our VPC CIDR block, which is <strong>10.0.0.0/16</strong>strong>. This way, our public instance can use SSH into our private instance.<br>
-7.	Scroll down and click <strong>Launch instance</strong>strong>.<br>
+6.	In the Network Settings section, click <strong>Edit</strong>. Let's make sure that we are launching our instance in the right subnet:<br>
+o	Network: <strong>Arun-VPC</strong><br>
+o	Subnet: <strong>Arun-Private-Subnet</strong><br>
+o	Auto-assign Public IP: <strong>Disable</strong><br>
+o	Firewall (Security Group): <strong>Create a new security group</strong><br>
+	Security group name: <strong>Arun-EC2-Priv-SG</strong><br>
+	Description: <strong>Arun-EC2-Priv-SG</strong> <br>
+	Type: <strong>SSH </strong>strong><br>
+	Source type: <strong>Custom</strong><br>
+	Source: Our VPC CIDR block, which is <strong>10.0.0.0/16</strong>. This way, our public instance can use SSH into our private instance.<br>
+7.	Scroll down and click <strong>Launch instance</strong>.<br>
 <img width="1242" alt="EC2-Priv-SG" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/a10175f4-e7c5-4bf4-baee-52697e46e7d8">
 8.	Once launched, click <strong>View All Instances</strong> to see your instance.<br>
 
