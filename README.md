@@ -209,6 +209,8 @@ A couple of things to note: <br>
 •	If you get a warning about the permissions of your key pair, run chmod 400 Arun-EC2-Key-Pub.pem to change the permissions of your key pair. <br>
  <img width="415" alt="ssh into Pub Instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/01e6c15f-984b-4f2b-8ffc-124ccea73b2a">
  
+ <img width="419" alt="we are in public instance" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/3e52f80e-d3e7-4e4c-b661-7c5f725a19fb">
+
 Now that we are in our public instance, let's set it up to use SSH into our private instance that's not accessible from the internet.<br>
 In your current terminal, run the following commands: <br>
 1.	Let's copy over our private key to our public instance: <br>
