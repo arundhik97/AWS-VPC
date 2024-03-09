@@ -1,9 +1,6 @@
 ![AwsGIF (2)](https://github.com/arundhik97/AWS-VPC/assets/38269066/2dc0707f-d6e4-470d-a902-5e0074135510)
 
  # AWS-VPC
- <!DOCTYPE html>
- <html>
- <body>
   <h2> VPC </h2>
   VPC stands for Virtual Private Cloud, which is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the AWS Cloud.
 <h2> Subnet </h2>
@@ -48,7 +45,7 @@ A few things to note: <br>
 •	Although we have a /16 CIDR block, we are using <strong>/24 </strong>, meaning that we are using 256 addresses for our subnet.<br>
 •	We are not selecting an availability zone, meaning that AWS will choose an availability zone for us. <br>
 •	Although the name of our subnet is Arun-Public-Subnet, it is not a public subnet yet. We still need to create a route to the internet.
-<h1> Create Private Subnet</h1>
+<h2> Create Private Subnet</h2>
 Having a private subnet allows us to have resources to restrict internet access, which is excellent for security—maybe a Vault server that houses all secrets and tokens. We don't want that to be accessible from the internet. <br>
 Let's configure our private subnet: <br>
 1.	Navigate to the <strong>Subnets</strong> section in the VPC service. <br>
@@ -63,7 +60,7 @@ o	IPv4 CIDR block: <strong>10.0.2.0/24</strong> <br>
 <img width="1242" alt="VPC Private Subnet" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/dcb96983-f731-4fe7-a6c8-6f0a06dbff81">
 
 Our next steps are to create an <strong> internet gateway </strong>and configure our <strong>route tables</strong> to make our subnets reachable from the internet.
-<h1>Create Internet Gateway</h1>
+<h2>Create Internet Gateway</h2>
 •	An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the internet. <br>
 •	An internet gateway is not a router. It does not perform any routing functions. It simply serves as a point of entry and exit for traffic going to and from the internet.<br>
 •	An internet gateway is typically attached to a subnet, enabling instances in the subnet to communicate with the internet. In our case, we will attach it to our public subnet, Arun-Public-Subnet.
@@ -122,7 +119,7 @@ Next, we need to associate our Arun-Public-RT to our Arun-Public-Subnet.
 We now have a public subnet that has a route to the internet.<br>
 Let's attach some computing to our newly created network.<br>
 
-<h1>Launch Public EC2 Instance</h1>
+<h2>Launch Public EC2 Instance</h2>
 EC2 is a web service that provides secure, resizable computing capacity in the cloud. Think of it as a virtual machine in the cloud.<br>
 EC2 can help with:<br>
 •	Deploying applications quickly <br>
@@ -171,7 +168,7 @@ The rest of the settings can be left as is. <br>
 Next, let's launch an EC2 instance in our Arun-Private-Subnet. <br>
 
 
-<h1>Launch Private EC2 Instance</h1>
+<h2>Launch Private EC2 Instance</h2>
 Here, we are going to create an EC2 instance in our Arun-Private-Subnet. This is a subnet that does not have a route to the internet. We will access this instance from our Arun-EC2-Pub instance.<br>
 Click <strong>Launch Instance</strong>:<br>
 1.	Give your instance a name: <strong>Arun-EC2-Priv</strong><br>
@@ -198,7 +195,7 @@ o	Firewall (Security Group): <strong>Create a new security group</strong><br>
 <img width="1242" alt="EC2-Priv-SG" src="https://github.com/arundhik97/AWS-VPC/assets/38269066/a10175f4-e7c5-4bf4-baee-52697e46e7d8">
 8.	Once launched, click <strong>View All Instances</strong> to see your instance.<br>
 
-<h1>Use SSH into EC2 Instances</h1>
+<h2>Use SSH into EC2 Instances</h2>
 That was a lot of work. We are almost there! Let's use SSH into our instances.<br>
 First, we'll use SSH into our Arun-EC2-Pub instance. From your Instances view, right-click <strong>Arun-EC2-Pub</strong>, and then click <strong>Connect</strong>:<br>
 1.	From the top navigation tab, select <strong>SSH client</strong>. <br>
