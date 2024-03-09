@@ -213,11 +213,11 @@ A couple of things to note: <br>
 
 Now that we are in our public instance, let's set it up to use SSH into our private instance that's not accessible from the internet.<br>
 In your current terminal, run the following commands: <br>
-1.	Let's copy over our private key to our public instance: <br>
+Let's copy over our private key to our public instance: <br>
 <strong>Method 1:</strong> <br>
 o	In your terminal, find <strong>Arun-EC2-Key-Priv.pem</strong> and copy the content of file. <br>
 o	Then, ssh to Public instance and create new file using, <strong>touch</strong> command and <strong>nano</strong> the file to exit. I have used <strong>newfile1</strong> as filenname, copy the whole content in this file copied from Private Key.
-2.	Let's change the permissions of our private key: <br>
+Let's change the permissions of our private key: <br>
 o	In your terminal, enter <strong>chmod 400 newfile1</strong>. <br>
 o	Copy and paste the command from the Connect to your instance window. For example, mine is <strong>ssh -i "Arun-EC2-Key-Priv.pem" ec2-user@10.0.2.218</strong>. <br>
 You should now be in your private instance. Woo hoo! <br> <br>
@@ -231,9 +231,9 @@ o	Open <strong>Arun-EC2-Key-Priv.pem</strong> in a text editor and copy the cont
 o	Paste the contents of the file in your terminal. <br>
 o	Press <strong>esc</strong> to exit insert mode. <br>
 o	Type <strong>:wq</strong> and <strong>enter</strong> to save and exit. <br>
-3.	Let's change the permissions of our private key: <br>
+Let's change the permissions of our private key: <br>
 o	In your terminal, enter <strong>chmod 400 Arun-EC2-Key-Priv.pem</strong>. <br>
-4.	Now, let's use SSH into our private instance: <br>
+Now, let's use SSH into our private instance: <br>
 o	Copy and paste the command from the Connect to your instance window. For example, mine is <strong>ssh -i "Arun-EC2-Key-Priv.pem" ec2-user@10.0.2.218</strong>. <br>
 You should now be in your private instance. Woo hoo! <br>
 
